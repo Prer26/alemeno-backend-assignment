@@ -1,4 +1,5 @@
 # AI-Powered Transaction Processing Pipeline
+AI-powered asynchronous transaction processing pipeline using FastAPI, Celery, Redis, PostgreSQL, Docker, and Google Gemini AI.
 
 ## Overview
 
