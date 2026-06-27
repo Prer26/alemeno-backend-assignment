@@ -71,27 +71,8 @@ alemeno-backend-assignment/
 
 ## System Architecture
 
-```text
-                Client
-                   │
-                   ▼
-            FastAPI Backend
-                   │
-         ┌─────────┴─────────┐
-         ▼                   ▼
-     PostgreSQL           Redis
-                               │
-                               ▼
-                        Celery Worker
-                               │
-         ┌─────────────────────┴─────────────────────┐
-         ▼                                           ▼
-   Data Cleaning                           Gemini AI
-         │                                           │
-         └─────────────────────┬─────────────────────┘
-                               ▼
-                        Job Summary Storage
-```
+<img width="827" height="1169" alt="architecture drawio" src="https://github.com/user-attachments/assets/5177cef8-8eb9-4b24-91ba-4eb6415493a8" />
+
 
 ---
 
