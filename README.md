@@ -75,6 +75,16 @@ alemeno-backend-assignment/
 
 
 ---
+## API Documentation
+
+Once the application is running, open:
+
+Swagger UI
+http://localhost:8000/docs
+
+ReDoc
+http://localhost:8000/redoc
+---
 
 ## Setup
 
