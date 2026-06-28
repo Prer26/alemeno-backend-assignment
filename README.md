@@ -83,7 +83,7 @@ alemeno-backend-assignment/
 <img src="https://github.com/user-attachments/assets/5177cef8-8eb9-4b24-91ba-4eb6415493a8" width="700">
 </p>
 Editable Draw.io Diagram:
-https://app.diagrams.net/#W247aaafa17672618%2F247AAAFA17672618!s23a2717d47b1453d88bc4cf3ffece05c#%7B%22pageId%22%3A%22Cd2WJorCBHw1OC74j2rd%22%7D
+https://1drv.ms/i/c/247aaafa17672618/IQB9caIjsUc9RYi8TPP_7OBcAeWjSLhq_B0JKuieQ9Bd1qA?e=hf1RTR
 
 ---
 
