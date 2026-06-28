@@ -1,95 +1,115 @@
+<div align="center">
+
 # AI-Powered Transaction Processing Pipeline
-AI-powered asynchronous transaction processing pipeline using FastAPI, Celery, Redis, PostgreSQL, Docker, and Google Gemini AI.
 
-## Overview
+An asynchronous backend for processing financial transaction CSV files using **FastAPI, PostgreSQL, Redis, Celery, Docker and Google Gemini**.
 
-This project is an AI-powered backend system that processes raw financial transaction CSV files asynchronously. It cleans inconsistent data, detects anomalies, classifies uncategorized transactions using Google's Gemini LLM, and generates an AI-powered financial summary.
+<p>
 
-The entire application is containerized using Docker and consists of FastAPI, PostgreSQL, Redis, and Celery.
+<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"/>
+<img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/>
+<img src="https://img.shields.io/badge/Celery-37814A?style=for-the-badge&logo=celery&logoColor=white"/>
+<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+<img src="https://img.shields.io/badge/Google%20Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white"/>
+
+</p>
+
+</div>
 
 ---
 
-## Features
+# Overview
 
-* CSV file upload
-* Asynchronous background processing using Celery
-* PostgreSQL database for persistent storage
-* Redis as message broker
-* Dockerized microservice architecture
+This project is an AI-powered asynchronous transaction processing pipeline developed as part of the Backend & DevOps Engineering Assignment.
+
+The application processes raw financial transaction CSV files by performing automated data cleaning, anomaly detection, AI-powered transaction categorization, and financial summary generation. Long-running tasks are executed asynchronously using Celery while Redis acts as the message broker and PostgreSQL stores all processed data.
+
+The complete application is containerized using Docker Compose, allowing every service to start with a single command.
+
+---
+
+# Technical Review Video
+
+A complete technical walkthrough explaining the architecture, request lifecycle, API demonstration, and scalability discussion is available below.
+
+> 🎥 **Watch the Technical Walkthrough Video:**
+> 
+> [**Click here to watch the Architecture & API Demo**](https://drive.google.com/file/d/1gRdroL7ei9L9Nk11Z_bg3dhxcY7uLg_l/view?usp=sharing)
+---
+
+# Technology Stack
+
+| Technology     | Purpose                     |
+| -------------- | --------------------------- |
+| FastAPI        | REST API Framework          |
+| PostgreSQL     | Relational Database         |
+| Redis          | Message Broker              |
+| Celery         | Background Task Queue       |
+| Docker         | Containerization            |
+| Docker Compose | Service Orchestration       |
+| SQLAlchemy     | ORM                         |
+| Pandas         | Data Processing             |
+| Google Gemini  | AI Classification & Summary |
+
+---
+
+# Project Structure
+
+```text
+alemeno-backend-assignment/
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── tasks.py
+│   ├── models.py
+│   ├── database.py
+│   └── celery_worker.py
+│
+├── images/
+│   ├── architecture.png
+│  
+├── uploads/
+│
+├── transactions.csv
+```
+
+---
+
+# System Architecture
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/5177cef8-8eb9-4b24-91ba-4eb6415493a8" width="700">
+</p>
+
+---
+
+# Features
+
+* Asynchronous CSV processing
+* Background task execution using Celery
+* PostgreSQL persistent storage
+* Redis-based task queue
 * Automatic data cleaning
 * Duplicate removal
 * Date normalization
 * Currency normalization
 * Statistical anomaly detection
 * Currency anomaly detection
-* AI-powered transaction categorization using Gemini
-* Batch LLM processing
-* Retry mechanism with exponential backoff
-* AI-generated spending summary
-* Dashboard API
+* AI-powered transaction categorization
+* AI-generated financial summaries
+* Dashboard analytics
 * Merchant analytics
 * Transaction filtering
 * Job status polling
+* Interactive Swagger documentation
 
 ---
 
-## Tech Stack
+# Setup
 
-* FastAPI
-* PostgreSQL
-* Celery
-* Redis
-* Docker
-* Docker Compose
-* SQLAlchemy
-* Pandas
-* Google Gemini API
-
----
-
-## Project Structure
-
-```text
-alemeno-backend-assignment/
-│
-├── app/
-│   ├── main.py
-│   ├── tasks.py
-│   ├── models.py
-│   ├── database.py
-│   ├── celery_worker.py
-│
-├── uploads/
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-├── .env.example
-├── .gitignore
-└── README.md
-```
-
----
-
-## System Architecture
-
-<img width="827" height="1169" alt="architecture drawio" src="https://github.com/user-attachments/assets/5177cef8-8eb9-4b24-91ba-4eb6415493a8" />
-
-
----
-## API Documentation
-
-Once the application is running, open:
-
-Swagger UI
-http://localhost:8000/docs
-
-ReDoc
-http://localhost:8000/redoc
----
-
-## Setup
-
-### Clone Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/Prer26/alemeno-backend-assignment.git
@@ -99,163 +119,224 @@ cd alemeno-backend-assignment
 
 ---
 
-### Configure Environment
+## Configure Environment
 
 Create a `.env` file using `.env.example`.
-
-Example:
 
 ```env
 DATABASE_URL=postgresql://postgres:your_password@postgres:5432/alemeno_db
 
 REDIS_URL=redis://redis:6379/0
 
-GEMINI_API_KEY=your_api_key
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
 ---
 
-### Start Application
+## Start the Application
 
 ```bash
 docker compose up --build
 ```
 
-The application will automatically start:
+The following services start automatically:
 
 * FastAPI
 * PostgreSQL
 * Redis
 * Celery Worker
 
-No manual setup is required.
+No additional setup is required.
 
 ---
 
-## API Endpoints
+# Running the API
+
+Once all containers have started successfully, open your browser and navigate to:
+
+### Swagger UI
+
+```text
+http://localhost:8000/docs
+```
+
+Swagger provides an interactive interface for:
+
+* Uploading transaction CSV files
+* Monitoring job status
+* Viewing processed transaction results
+* Accessing AI-generated summaries
+* Viewing dashboard analytics
+* Filtering transactions
+* Testing every available API endpoint
+
+Alternative OpenAPI documentation:
+
+### ReDoc
+
+```text
+http://localhost:8000/redoc
+```
+
+---
+
+# API Endpoints
+
+| Method | Endpoint                 | Description                     |
+| ------ | ------------------------ | ------------------------------- |
+| POST   | `/jobs/upload`           | Upload transaction CSV          |
+| GET    | `/jobs`                  | List all processing jobs        |
+| GET    | `/jobs/{job_id}/status`  | Retrieve job status             |
+| GET    | `/jobs/{job_id}/results` | Retrieve processed transactions |
+| GET    | `/jobs/{job_id}/summary` | AI-generated financial summary  |
+| GET    | `/transactions`          | Retrieve all transactions       |
+| GET    | `/transactions/filter`   | Filter transactions             |
+| GET    | `/dashboard`             | Dashboard statistics            |
+| GET    | `/analytics/merchants`   | Merchant analytics              |
+
+---
+
+# Example cURL Requests
 
 ### Upload CSV
 
-```
-POST /jobs/upload
-```
-
-Uploads a transaction CSV and immediately returns a Job ID.
-
----
-
-### Job Status
-
-```
-GET /jobs/{job_id}/status
+```bash
+curl -X POST "http://localhost:8000/jobs/upload" \
+-F "file=@transactions.csv"
 ```
 
-Returns the current processing status.
+### Get Job Status
 
----
-
-### Job Results
-
-```
-GET /jobs/{job_id}/results
+```bash
+curl http://localhost:8000/jobs/3/status
 ```
 
-Returns:
+### Get Job Results
 
-* Processed transactions
-* Anomaly list
-* Category-wise spending
-* AI-generated summary
-
----
-
-### AI Summary
-
-```
-GET /jobs/{job_id}/summary
+```bash
+curl http://localhost:8000/jobs/3/results
 ```
 
-Returns a structured financial summary generated using Gemini.
+### Get AI Summary
 
----
-
-### List Jobs
-
-```
-GET /jobs
-```
-
-Lists all uploaded jobs.
-
-Supports:
-
-```
-GET /jobs?status=completed
+```bash
+curl http://localhost:8000/jobs/3/summary
 ```
 
 ---
 
-### Dashboard
+# Processing Pipeline
 
+```text
+CSV Upload
+      │
+      ▼
+Create Job
+      │
+      ▼
+Queue Background Task
+      │
+      ▼
+Celery Worker
+      │
+      ▼
+Data Cleaning
+      │
+      ▼
+Anomaly Detection
+      │
+      ▼
+Gemini Classification
+      │
+      ▼
+AI Summary Generation
+      │
+      ▼
+Store Results in PostgreSQL
+      │
+      ▼
+Job Completed
 ```
-GET /dashboard
-```
-
-Returns overall system statistics.
 
 ---
 
-### Merchant Analytics
+# Application Screenshots
 
-```
-GET /analytics/merchants
-```
+## Swagger Documentation
 
-Returns merchant-wise spending analytics.
-
----
-
-### Filter Transactions
-
-```
-GET /transactions/filter
-```
-
-Supports filtering by:
-
-* Status
-* Category
-* Currency
+<p align="center">
+<img width="1865" height="901" alt="image" src="https://github.com/user-attachments/assets/d2497331-13f5-4ef2-9053-d9b9234e98a5" />
+</p>
 
 ---
 
-## Processing Pipeline
+## Job Status
 
-1. Upload CSV
-2. Create Job
-3. Queue Background Task
-4. Clean Data
-5. Detect Anomalies
-6. Batch Gemini Classification
-7. Generate AI Summary
-8. Store Results
-9. Mark Job Complete
+<p align="center">
+<img width="1770" height="502" alt="Screenshot 2026-06-28 094713" src="https://github.com/user-attachments/assets/ff5e16f8-0ae1-4df6-ac45-8cb5de2146aa" />
+</p>
 
 ---
 
-## Future Improvements
+## Job Results
 
-* Migrate to the latest Google GenAI SDK
-* Add JWT Authentication
-* Database migrations using Alembic
-* Pagination for transaction APIs
-* Unit and integration tests
+<p align="center">
+<img width="1777" height="722" alt="Screenshot 2026-06-28 094734" src="https://github.com/user-attachments/assets/cf14ec8a-e8a4-4c65-919b-98e495cb7ef0" />
+</p>
+
+---
+
+## AI Financial Summary
+
+<p align="center">
+<img width="1768" height="695" alt="Screenshot 2026-06-28 094756" src="https://github.com/user-attachments/assets/5e25fbc8-48ed-4426-946a-d2c2d69a4c3f" />
+</p>
+
+---
+
+# Scalability Considerations
+
+The current architecture is designed to support asynchronous processing and can be extended for higher workloads by:
+
+* Deploying multiple FastAPI instances behind a load balancer
+* Scaling Celery workers horizontally
+* Using PostgreSQL indexing and connection pooling
+* Introducing read replicas for database scalability
+* Caching repeated merchant classifications to reduce LLM calls
+* Moving uploaded files to object storage such as Amazon S3
+
+---
+# Design Decisions
+
+- FastAPI was selected for building high-performance asynchronous REST APIs.
+- Celery and Redis were used to offload long-running processing tasks from the API layer.
+- PostgreSQL provides reliable relational storage for jobs and processed transactions.
+- Google Gemini performs AI-powered transaction categorization and financial summarization.
+- Docker Compose simplifies deployment by orchestrating all required services with a single command.
+---
+# Future Improvements
+
+* Upgrade to the latest Google GenAI SDK
+* JWT Authentication
+* Alembic database migrations
+* Unit and integration testing
+* Pagination support
 * Kubernetes deployment
+* CI/CD pipeline
+* Monitoring using Prometheus and Grafana
 
 ---
 
-## Author
+# Author
 
 **Prerana Iyengar**
 
-Backend & AI Engineering Assignment
+Backend & DevOps Engineering Assignment
+
+---
+
+<div align="center">
+
+Built using FastAPI, PostgreSQL, Redis, Celery, Docker and Google Gemini AI.
+
+</div>
